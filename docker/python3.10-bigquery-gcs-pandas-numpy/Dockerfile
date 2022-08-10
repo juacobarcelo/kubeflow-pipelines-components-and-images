@@ -1,5 +1,9 @@
 FROM python:3.10-slim-buster
 
+
+RUN apt-get update \
+&& apt-get -y install --no-install-recommends curl
+
 RUN useradd -ms /bin/bash solver
 
 USER solver
