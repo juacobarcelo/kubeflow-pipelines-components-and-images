@@ -3,7 +3,7 @@ description: Split CSV file in several files with same number of rows (except th
 metadata:
   annotations:
     author: Joaquín Barceló <jbarceló@solver.cl>
-    canonical_location: 
+    canonical_location: https://raw.githubusercontent.com/juacobarcelo/kubeflow-pipelines-components-and-images/main/components/split-csv-into-multiple-files.yaml
 inputs:
 - name: archivo-entrada
 outputs:
@@ -17,7 +17,7 @@ implementation:
     - |
         mkdir -p trabajo
         cd trabajo
-        wget https://raw.githubusercontent.com/juacobarcelo/kubeflow-pipelines-components-and-images/main/docker/python3.10-bigquery-gcs-pandas-numpy/scripts/split-csv-into-files.sh
+        wget https://raw.githubusercontent.com/juacobarcelo/kubeflow-pipelines-components-and-images/main/scripts/split-csv-into-multiple-files.sh
         chmod 755 split-csv-into-files.sh
         ./split-csv-into-files "$0" -d salida -p data_-s 7
         tar -cvzf "$1".tar.gz salida/*csv
