@@ -50,5 +50,20 @@
 	// "postCreateCommand": "pip3 install --user -r requirements.txt",
 
 	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "vscode"
+	"remoteUser": "vscode",
+	"remoteEnv": {
+		"SYNC_LOCALHOST_KUBECONFIG": "true",
+		"GOOGLE_APPLICATION_CREDENTIALS": "/home/vscode/claves/jbarcelo-personal-932de6e5649d-desarrollo.json",
+		"PATH": "${containerEnv:PATH}:${containerWorkspaceFolder}:${containerEnv:PATH}:${containerWorkspaceFolder}/utilitarios:${containerEnv:HOME}/google-cloud-sdk/bin",
+		"PYTHONPATH": "${containerWorkspaceFolder}",
+		"USE_GKE_GCLOUD_AUTH_PLUGIN":"True"
+	},
+
+	"mounts": [
+		"source=${env:HOME}/.kube,target=/home/vscode/.kube,type=bind",
+		"source=${env:HOME}/claves,target=/home/vscode/claves,type=bind",
+		"source=${env:HOME}/.ssh,target=/home/vscode/.ssh,type=bind",
+		"source=${env:HOME}/google-cloud-sdk,target=/home/vscode/google-cloud-sdk/,type=bind",
+
+	],
 }
