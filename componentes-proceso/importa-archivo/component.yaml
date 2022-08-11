@@ -19,7 +19,7 @@ inputs:
   optional: true
 - name: lista-topicos-por-notificar
   type: List
-  default: '[]'
+  default: []
   optional: true
 outputs:
 - name: output-file-uri
