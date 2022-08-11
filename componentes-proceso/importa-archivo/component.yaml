@@ -43,11 +43,11 @@ implementation:
         echo "$3" > "$7"
         echo "Lista de tópicos a notificar: $3"
         echo "$4" > "$8"
-    - inputPath: output-file-uri
+    - inputPath: file-uri
     - inputPath: number-of-lines-to-skip
     - inputPath: lines-of-splitted-files
     - inputPath: lista-topicos-por-notificar
-    - outputPath: archivos-salida-comprimidos
+    - outputPath: output-file-uri
     - outputPath: output-number-of-lines-to-skip
     - outputPath: output-lines-of-splitted-files
     - outputPath: output-lista-topicos-por-notificar
