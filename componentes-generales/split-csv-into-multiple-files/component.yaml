@@ -24,7 +24,7 @@ implementation:
         chmod 755 split-csv-into-files.sh
         ./split-csv-into-files "$0" -d salida -p data_-s "$1"
         tar -cvzf "$2".tar.gz salida/*csv
-    - inputValue: archivo-entrada
+    - inputPath: archivo-entrada
     - inputValue: number-of-lines-to-skip
     - outputPath: archivos-salida-comprimidos
     
