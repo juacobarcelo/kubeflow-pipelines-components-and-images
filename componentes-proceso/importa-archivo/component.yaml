@@ -1,19 +1,31 @@
+# Inicio de proceso. Recibe los parámetros y los disponibiliza para los procesos siguientes
+#
 name: Importa Archivo
 description: Recibe variables de importación de archivo y las disponibiliza para el workflow
 metadata:
   annotations:
     author: Joaquín Barceló <jbarceló@solver.cl>
-    canonical_location: 
+    canonical_location: https://raw.githubusercontent.com/juacobarcelo/kubeflow-pipelines-components-and-images/main/componentes-proceso/importa-archivo/component.yaml
 inputs:
 - name: file-uri
+  type: GCSPath  
 - name: number-of-lines-to-skip
-  default: '0'
+  type: Integer
+  default: 0
+  optional: true
 - name: lines-of-splitted-files
+  type: Integer
   default: '10000'
+  optional: true
 - name: lista-topicos-por-notificar
+  type: List
   default: '[]'
+  optional: true
 outputs:
-- name: archivos-salida-comprimidos
+- name: output-file-uri
+- name: output-number-of-lines-to-skip
+- name: output-lines-of-splitted-files
+- name: output-lista-topicos-por-notificar
 implementation:
   container:
     image: alpine
@@ -22,12 +34,20 @@ implementation:
     - -exc
     - |
         echo "Inicio proceso de importación de archivo"
+        echo "$0" > "$4"
         echo "URI del archivo: $0"
+        echo "$1" > "$5"
         echo "Número de líneas a saltar: $1"
+        echo "$2" > "$6"
         echo "Número de líneas por archivo: $2"
+        echo "$3" > "$7"
         echo "Lista de tópicos a notificar: $3"
-    - inputPath: file-uri
+        echo "$4" > "$8"
+    - inputPath: output-file-uri
     - inputPath: number-of-lines-to-skip
     - inputPath: lines-of-splitted-files
     - inputPath: lista-topicos-por-notificar
     - outputPath: archivos-salida-comprimidos
+    - outputPath: output-number-of-lines-to-skip
+    - outputPath: output-lines-of-splitted-files
+    - outputPath: output-lista-topicos-por-notificar

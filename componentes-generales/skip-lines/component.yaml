@@ -1,0 +1,30 @@
+name: Salta lineas al  nicio de archivo
+description: Descarta lineas iniciales de archivo
+metadata:
+  annotations:
+    author: Joaquín Barceló <jbarceló@solver.cl>
+    canonical_location: https://raw.githubusercontent.com/juacobarcelo/kubeflow-pipelines-components-and-images/main/componentes-generales/skip-lines/component.yaml
+inputs:
+- name: archivo-entrada
+- name: number-of-lines-to-skip
+  type: Integer
+  default: 0
+outputs:
+- name: archivos-salida-comprimidos
+implementation:
+  container:
+    image: alpine
+    command:
+    - sh
+    - -exc
+    - |
+        INPUT=$0
+        lines_to_skip=$1
+        OUTPUT=$2
+        tail -n +$((lines_to_skip+1)) "$INPUT" > "$OUTPUT".tmp
+        gzip -c "$OUTPUT".tmp > "$OUTPUT"
+        rm -rf "$OUTPUT".tmp
+    - inputPath: archivo-entrada
+    - inputPath: number-of-lines-to-skip
+    - outputPath: archivos-salida-comprimidos
+    
