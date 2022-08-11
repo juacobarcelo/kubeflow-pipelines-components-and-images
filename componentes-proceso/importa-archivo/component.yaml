@@ -8,7 +8,7 @@ metadata:
     canonical_location: https://raw.githubusercontent.com/juacobarcelo/kubeflow-pipelines-components-and-images/main/componentes-proceso/importa-archivo/component.yaml
 inputs:
 - name: file-uri
-  type: GCSPath  
+#   type: GCSPath  
 - name: number-of-lines-to-skip
 #   type: Integer
   default: '0'
