@@ -15,7 +15,7 @@ inputs:
   optional: true
 - name: lines-of-splitted-files
   type: Integer
-  default: '10000'
+  default: 50000
   optional: true
 - name: lista-topicos-por-notificar
   type: List
