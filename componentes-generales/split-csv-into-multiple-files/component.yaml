@@ -26,21 +26,23 @@ implementation:
         echo "entrada: $0"
         ls "$0"
         echo "Lines to skip: $1"
-        echo "Archivo salida $2"
-        bash -x ./split-csv-into-multiple-files.sh "$0" -d salida -s "$1" -p data_ 
-        cd salida
-        echo "----------> Archivos (splitted):"
-        ls -la
+        echo "Directorio salida $2"
+        bash -x ./split-csv-into-multiple-files.sh "$0" -d salida -s "$1" -p data_  -d "$2"
+        ls -la "$2"
         
-        echo "Creo directorio destino"
-        mkdir -p "$2"
-        mv *csv "$2"/.
+        # cd salida
+        # echo "----------> Archivos (splitted):"
+        # ls -la
         
-        # dirname "$2" |  xargs  mkdir -p
-        # echo "----------> Tar:"
-        # (tar -cvzf "$2" *csv)
-        # echo "----------> Contenido Archivo tar:"
-        # tar -tvf "$2"
+        # echo "Creo directorio destino"
+        # mkdir -p "$2"
+        # mv *csv "$2"/.
+        
+        ## dirname "$2" |  xargs  mkdir -p
+        ## echo "----------> Tar:"
+        ## (tar -cvzf "$2" *csv)
+        ## echo "----------> Contenido Archivo tar:"
+        ## tar -tvf "$2"
     - inputPath: archivo-entrada
     - inputValue: number-of-lines-to-skip
     - outputPath: archivos-salida-comprimidos
