@@ -25,11 +25,11 @@ implementation:
         echo "-----> Param:"
         echo "entrada: $0"
         ls "$0"
-        echo "salida: $1"
-        echo 
+        echo "Lines to skip: $1"
+        echo "Archivo salida $2"
         bash -x ./split-csv-into-multiple-files.sh "$0" -d salida -s "$1" -p data_ 
         cd salida
-        (tar -cvzf "$2".tar.gz *csv)
+        (tar -cvzf "$2" *csv)
     - inputPath: archivo-entrada
     - inputValue: number-of-lines-to-skip
     - outputPath: archivos-salida-comprimidos
