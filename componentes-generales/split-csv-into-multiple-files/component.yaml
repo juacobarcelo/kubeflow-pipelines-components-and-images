@@ -32,7 +32,7 @@ implementation:
         echo "----------> Archivos (splitted):"
         ls -la
         echo "Creo directorio destino"
-        dirname $2 |  xargs mkdir -p
+        dirname $2 |  xargs | mkdir -p
         echo "----------> Tar:"
         (tar -cvzf "$2" *csv)
         echo "----------> ls Archivo tar:"
