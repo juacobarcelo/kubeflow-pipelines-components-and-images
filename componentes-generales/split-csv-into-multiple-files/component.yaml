@@ -27,7 +27,7 @@ implementation:
         ls "$0"
         echo "salida: $1"
         echo 
-        ./split-csv-into-multiple-files.sh "$0" -d salida -p data_-s "$1"
+        ./split-csv-into-multiple-files.sh "$0" -d salida -s "$1" -p data_ 
         tar -cvzf "$2".tar.gz salida/*csv
     - inputPath: archivo-entrada
     - inputValue: number-of-lines-to-skip
