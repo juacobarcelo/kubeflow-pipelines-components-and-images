@@ -17,7 +17,7 @@ implementation:
     - sh
     - -exc
     - |
-        apk add wget
+        apk add wget bash coreutils
         mkdir -p trabajo
         cd trabajo
         wget https://raw.githubusercontent.com/juacobarcelo/kubeflow-pipelines-components-and-images/main/componentes-generales/split-csv-into-multiple-files/split-csv-into-multiple-files.sh
@@ -27,7 +27,7 @@ implementation:
         ls "$0"
         echo "salida: $1"
         echo 
-        sh -x ./split-csv-into-multiple-files.sh "$0" -d salida -s "$1" -p data_ 
+        bash -x ./split-csv-into-multiple-files.sh "$0" -d salida -s "$1" -p data_ 
         tar -cvzf "$2".tar.gz salida/*csv
     - inputPath: archivo-entrada
     - inputValue: number-of-lines-to-skip
