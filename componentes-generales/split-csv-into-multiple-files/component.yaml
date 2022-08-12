@@ -29,7 +29,14 @@ implementation:
         echo "Archivo salida $2"
         bash -x ./split-csv-into-multiple-files.sh "$0" -d salida -s "$1" -p data_ 
         cd salida
+        echo "----------> Archivos (splitted):"
+        ls -la
+        echo "----------> Tar:"
         (tar -cvzf "$2" *csv)
+        echo "----------> ls Archivo tar:"
+        ls -la $2
+        echo "----------> Contenido Archivo tar:"
+        tar -tvf $2
     - inputPath: archivo-entrada
     - inputValue: number-of-lines-to-skip
     - outputPath: archivos-salida-comprimidos
