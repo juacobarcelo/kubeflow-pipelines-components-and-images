@@ -27,7 +27,7 @@ implementation:
         ls "$0"
         echo "Lines to skip: $1"
         echo "Directorio salida $2"
-        bash -x ./split-csv-into-multiple-files.sh "$0" -d salida -s "$1" -p data_  -d "$2"
+        bash -x ./split-csv-into-multiple-files.sh "$0" -s "$1" -p data_  -d "$2"
         ls -la "$2"
         
         # cd salida
