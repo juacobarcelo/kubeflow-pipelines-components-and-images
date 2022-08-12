@@ -93,7 +93,14 @@ PREFIJO="${output_file_prefix:=part_}"
 N_LINEAS="${lines_per_file:=10000}"
 LINES_TO_SKIP="${lines_to_skip:=0}"
 
+echo "INPUT: $INPUT"
+echo "DIR_ACTUAL: $DIR_ACTUAL"
+echo "DIR_SALIDA: $DIR_SALIDA"
+echo "PREFIJO: $PREFIJO"
+echo "N_LINEAS: $N_LINEAS"
+echo "LINES_TO_SKIP: $LINES_TO_SKIP"
 
+echo "Creo DIR_SALIDA"
 mkdir -p $DIR_SALIDA
 # Elimino archivos del tipo solicitado prexistentes
 rm -rf $DIR_SALIDA/$PREFIJO*
