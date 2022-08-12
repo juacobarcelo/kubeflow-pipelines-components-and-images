@@ -22,7 +22,7 @@ implementation:
         cd trabajo
         wget https://raw.githubusercontent.com/juacobarcelo/kubeflow-pipelines-components-and-images/main/componentes-generales/split-csv-into-multiple-files/split-csv-into-multiple-files.sh
         chmod 755 split-csv-into-files.sh
-        ./split-csv-into-files "$0" -d salida -p data_-s "$1"
+        ./split-csv-into-files.sh "$0" -d salida -p data_-s "$1"
         tar -cvzf "$2".tar.gz salida/*csv
     - inputPath: archivo-entrada
     - inputValue: number-of-lines-to-skip
