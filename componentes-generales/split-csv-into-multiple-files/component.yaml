@@ -17,7 +17,7 @@ implementation:
     - sh
     - -exc
     - |
-        apk install wget
+        apk add wget
         mkdir -p trabajo
         cd trabajo
         wget https://raw.githubusercontent.com/juacobarcelo/kubeflow-pipelines-components-and-images/main/componentes-generales/split-csv-into-multiple-files/split-csv-into-multiple-files.sh
