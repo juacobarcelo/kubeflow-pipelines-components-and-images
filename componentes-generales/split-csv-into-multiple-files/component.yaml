@@ -7,9 +7,11 @@ metadata:
 inputs:
 - name: archivo-entrada
 - name: number-of-lines-to-skip
+  type: Integer
   default: '0'
 outputs:
 - name: archivos-salida-comprimidos
+  type: Dataset
 implementation:
   container:
     image: alpine
